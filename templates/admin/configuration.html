@@ -21,7 +21,7 @@
             <i class="fa fa-gear"></i>
             {{ _("Configuration") }}
         </h1>
-        <div style="font-style: italic;"><strong>{{ _("Note") }}:</strong> {{ _("Not all options are accessible in the web configuration.") }}</div>
+        <div style="font-style: italic;"><strong>{{ _("Note") }}:</strong> {{ _("Not all options are accessible in the web configuration.  For more, see") }} <a href="https://github.com/moloch--/RootTheBox/wiki/Configuration-File-Details" target="_blank">rootthebox.cfg</a>.</div>
         <br />
         {% if errors is not None and len(errors) != 0 %}
             {% for error in errors %}
@@ -35,11 +35,11 @@
         <div class="well">
             {% raw xsrf_form_html() %}
             <div class="control-group">
-                <label class="control-label" for="game-name">{{ _("Event Name") }}</label>
+                <label class="control-label" for="game-name">{{ _("Game Name") }}</label>
                 <div class="controls">
-                    <input required id="game-name" type="text" name="game_name" value="CII SecEx 2025"
+                    <input required id="game-name" type="text" name="game_name" value="{{ config.game_name }}"
                         rel="popover"
-                        data-original-title="{{ _('Event Name') }}"
+                        data-original-title="{{ _('Game Name') }}"
                         data-content="{{ _('This is the name that will appear in the upper left corner') }}" />
                 </div>
             </div>
