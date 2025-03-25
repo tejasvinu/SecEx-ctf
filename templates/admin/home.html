@@ -113,46 +113,50 @@
                     {% raw xsrf_form_html() %}
                     <input id="clear-ip" name="ip" type="hidden" />
                 </form>
-                <div class="game_button_area">
-                    {% if not handler.application.settings['game_started'] %}
-                        <button id="start-game-button" class="btn btn-success game_button" type="button">
-                            <i class="fa fa-fw fa-play"></i>
-                        </button>
-                        <h4 class="game_button_text">{{ _("Start the Game") }}</h4>
-                    {% else %}
-                        <button id="stop-game-button" class="btn btn-danger game_button" type="button">
-                            <i class="fa fa-fw fa-stop"></i>
-                        </button>
-                        <h4 class="game_button_text">{{ _("Stop the Game") }}</h4>
-                    {% end %}
-                </div>
-                <div class="game_button_area">
-                    {% if not handler.application.settings['suspend_registration'] %}
-                        <button id="suspend-registration-button" class="btn btn-warning game_button" type="button">
-                            <i class="fa fa-fw fa-pause"></i>  
-                        </button>
-                        <h4 class="game_button_text">{{ _("Pause Registration") }}</h4>
-                    {% else %}
-                        <button id="resume-registration-button" class="btn btn-success game_button" type="button">
-                            <i class="fa fa-fw fa-play"></i>  
-                        </button>
-                        <h4 class="game_button_text">{{ _("Resume Registration") }}</h4>
-                    {% end %}
-                </div>
-                <div class="game_button_area">
-                    {% if not handler.application.settings['countdown_timer'] %}
-                        <button id="countdown-timer-button" class="btn btn-success game_button" data-toggle="modal" href="#timer-modal" type="button">
-                            <i class="fa fa-fw fa-clock-o"></i>
-                        </button>
-                        <h4 class="game_button_text">{{ _("Set Countdown") }}</h4>
-                    {% else %}
-                        <button id="resume-scoreboard-button" class="btn btn-warning game_button" type="button">
-                            &nbsp;<i class="fa fa-ban"></i>&nbsp;
-                        </button>
-                        <h4 class="game_button_text">{{ _("Clear Countdown") }}</h4>
-                    {% end %}
-                </div>
+                <div class="event_button_area">
+                    <h3>{{ _("Event Control") }}</h3>
+                    <hr />
+                    <div>
+                        {% if not handler.application.settings['game_started'] %}
+                            <button id="start-game-button" type="button" class="btn btn-success event_button">
+                                <i class="fa fa-play"></i>
+                                <h4 class="event_button_text">{{ _("Start Event") }}</h4>
+                            </button>
+                        {% else %}
+                            <button id="stop-game-button" type="button" class="btn btn-danger event_button">
+                                <i class="fa fa-stop"></i>
+                                <h4 class="event_button_text">{{ _("Stop Event") }}</h4>
+                            </button>
+                        {% end %}
+                    </div>
+                    <div>
+                        {% if not handler.application.settings['suspend_registration'] %}
+                            <button id="suspend-registration-button" type="button" class="btn btn-warning event_button">
+                                <i class="fa fa-pause"></i>
+                                <h4 class="event_button_text">{{ _("Suspend Registration") }}</h4>
+                            </button>
+                        {% else %}
+                            <button id="resume-registration-button" type="button" class="btn btn-success event_button">
+                                <i class="fa fa-play"></i>
+                                <h4 class="event_button_text">{{ _("Resume Registration") }}</h4>
+                            </button>
+                        {% end %}
+                    </div>
+                    <div>
+                        {% if not handler.application.settings['countdown_timer'] %}
+                            <button id="countdown-timer-button" class="btn btn-success game_button" data-toggle="modal" href="#timer-modal" type="button">
+                                <i class="fa fa-fw fa-clock-o"></i>
+                            </button>
+                            <h4 class="game_button_text">{{ _("Set Countdown") }}</h4>
+                        {% else %}
+                            <button id="resume-scoreboard-button" class="btn btn-warning game_button" type="button">
+                                &nbsp;<i class="fa fa-ban"></i>&nbsp;
+                            </button>
+                            <h4 class="game_button_text">{{ _("Clear Countdown") }}</h4>
+                        {% end %}
+                    </div>
 
+                </div>
             </div>
         </div>
         <div class="row">
